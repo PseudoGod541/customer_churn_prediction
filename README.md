@@ -28,10 +28,10 @@ This project is a full-stack application designed to predict customer churn for 
 ## 🚀 How to Run
 
 To run this application, you need to have Docker and Docker Compose installed on your machine.
-
+```bash
 ### 1. Clone the Repository
 
-```bash
+
 git clone <your-repository-url>
 cd <your-project-directory>
 
