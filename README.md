@@ -32,17 +32,17 @@ To run this application, you need to have Docker and Docker Compose installed on
 ### 1. Clone the Repository
 
 
-git clone <your-repository-url>
-cd <your-project-directory>
+git clone <https://github.com/PseudoGod541/customer_churn_prediction/tree/main>
+cd <project-directory>
 
 2. Place Model Files
-Ensure your trained model files are placed inside a models/ directory in the root of the project. This includes:
+Ensure your trained model files are placed inside a model/ directory in the root of the project. This includes:
 
 preprocessor.pkl
 
-churn_model.h5 (or your saved model file)
+churn_model.h5 
 
-Any other required model assets.
+predict.py
 
 3. Run with Docker Compose
 This single command will build the Docker image and start both the FastAPI backend and the Streamlit frontend.
@@ -58,10 +58,10 @@ FastAPI Backend Docs: Open your browser and go to http://localhost:8000/docs
 
 📁 Project Structure
 .
-├── models/               # Contains trained model and preprocessor
-├── main.py               # FastAPI application
-├── streamlit_app.py      # Streamlit frontend application
+├── model/                # Contains trained model and preprocessor
+├── schema                # Contains customer data             
+├── app.py                # FastAPI application
+├── frontend.py           # Streamlit frontend application
 ├── Dockerfile            # Instructions to build the Docker image
 ├── docker-compose.yml    # Defines and runs the multi-container setup
-├── .dockerignore         # Specifies files to ignore during build
 └── requirements.txt      # Python dependencies
