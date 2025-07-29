@@ -1,0 +1,27 @@
+# docker-compose.yml
+
+version: '3.8'
+
+services:
+  # The FastAPI Backend Service for Churn Prediction
+  api:
+    build: .
+    # This command assumes your FastAPI file is named 'main.py'
+    command: uvicorn app:app --host 0.0.0.0 --port 8000
+    volumes:
+      # Mount the models directory into the container
+      - ./models:/app/models
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+
+  # The Streamlit Frontend Service
+  frontend:
+    build: .
+    # This command assumes your Streamlit file is named 'streamlit.py'
+    command: streamlit run frontend.py --server.port 8501 --server.address 0.0.0.0
+    ports:
+      - "8501:8501"
+    depends_on:
+      - api  # This ensures the backend starts before the frontend
+    restart: unless-stopped
